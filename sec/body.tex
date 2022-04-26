@@ -1,0 +1,101 @@
+% !TEX root = ../lk_sq.tex
+
+\section*{The first Wu formula at the geometric cochain level} \label{s:statement}
+
+\vspace*{10pt}
+
+Let $\gamma \colon S^1 \to M$ a map to a closed smooth $d$-manifold.
+Let $w_1(\gamma^\ast TM)$ be the first Stiefel--Whitney class of the pullback of the tangent bundle of $M$ along $\gamma$.
+
+\subsection*{Cohomological relation}
+
+Let $\gamma_\ast[S^1]$ be the pushforward of the mod 2 fundamental class of $S^1$ along $\gamma$ and $\dual \gamma_\ast[S^1]$ its Poincar\'e dual.
+Notice that tautologically
+\[
+\gamma_\ast[S^1] = \dual \gamma_\ast[S^1] \smallfrown [M].
+\]
+Using the Wu formula and the fact that the first Stiefel--Whitney and Wu classes agree we have:
+\begin{align*}
+	\angles[\big]{w_1(\gamma^\ast TM), [S^1]} &=
+	\angles[\big]{w_1(TM), \gamma_\ast [S^1]} \\ &=
+	\angles[\big]{w_1(TM), \dual \gamma_\ast[S^1] \smallfrown [M]} \\ &=
+	\angles[\big]{w_1(TM) \smallsmile \dual \gamma_\ast[S^1], [M]} \\ &=
+	\angles[\big]{\Sq^1 \dual \gamma_\ast[S^1], [M]}.
+\end{align*}
+We will now lift this identity to the geometric cochain level.
+
+\subsection*{Geometric cochains}
+
+For a closed manifold $N$ denote by $C^*_{\Gamma}(M)$ the complex of mod 2 geometric cochains introduced in \cite{medina2021flowing} (over the integers).
+Its degree $m$ part consists of linear combinations of equivalence classes of smooth maps to $N$ from manifolds with corners of codimension $m$.
+Its differential is defined by the geometric boundary of the generators.
+It is a model for the mod 2 cohomology of $M$.
+In fact we have the following comparison at the cochain level with the simplicial cochains $\cochains(X)$ of any triangulation $\bars{X} \to M$.
+We first restrict to the subcomplex $C^*_{\Gamma \pitchfork X}(N)$ of geometric cochains that are transverse to the triangulation, claiming that the quasi-isomorphism type is preserved, and then define a quasi-isomorphism
+\[
+\cI \colon C^*_{\Gamma \pitchfork X}(N) \to \cochains(X)
+\]
+by counting the number of intersection points mod 2.
+We remark that by considering co-orientations on the generators, a similar statement holds with integral coefficients.
+
+\subsection*{Canonical vector fields}
+
+We will consider the following natural family of vector fields in the standard $n$-simplex
+\[
+\gsimplex^n = \set[\big]{x = (x_0, \dots, x_n) \mid \textstyle \sum x_i = 1,\ x_i \geq 0}
+\]
+defined, using the canonical basis $e_0, \dots, e_n$ of $\R^{n+1}$, by
+\begin{align*}
+	f_0(x) &= \sum_{i < j} x_i x_j (e_j - e_i) \\
+	f_1(x) &= \sum_{i < j < k} x_i x_j x_k (e_k - e_j + e_i) \\
+	&\ \, \vdots
+\end{align*}
+\textit{Claim}: The vector fields $f_0, \dots f_{n-1}$ define a trivialization of the interior of $\gsimplex^n$ and, by naturality, extend to vector fields on $M$ via the triangulation.
+
+\subsection*{First Stiefel--Whitney class}
+
+Define $W_1 \subset S^1$ to be the locus where the vector fields $\gamma^\ast f_0, \dots, \gamma^\ast f_{n-2}$ in $\gamma^\ast TM$ fail to be linearly independent.
+As a further transversality assumption, we demand this locus to consist of isolated points.
+
+\begin{proposition}
+	The cohomology class $w_1(\gamma^\ast TM)$ is represented by the geometric cocycle $W_1 \hookrightarrow S^1$.
+\end{proposition}
+
+We remark that this statement fits well with the obstruction theoretic definition of of the first Stiefel--Whitney class of a vector bundle.
+
+\subsection*{First Steenrod square}
+
+Consider now the composition $W_1 \hookrightarrow S^1 \xra{\gamma} M$ as a geometric cocycle on $M$.
+
+\begin{proposition}
+	The first Steenrod square of the class represented by the geometric cocycle $S^1 \xra{\gamma} M$ is represented by $W_1 \hookrightarrow S^1 \xra{\gamma} M$.
+\end{proposition}
+
+This result follows from a local cochain level statement we now present.
+Let
+\[
+\smallsmile_i \colon \cochains(K) \otimes \cochains(K) \to \cochains(K)
+\]
+be Steenrod's cup-$i$ product \cite{steenrod1947products, medina2022axiomatic}.
+Recall that for any mod 2 class $[\alpha]$ with $\alpha \in \cochains(K)_{d-1}$ we have
+\[
+\Sq^1 [\alpha] = \big[ \alpha \smallsmile_{d-2} \alpha \big],
+\]
+which motivates the notation
+\[
+\SQ^1 \alpha \defeq \alpha \smallsmile_{d-2} \alpha.
+\]
+\begin{proposition}
+	The following identity holds in $\cochains(X)$:
+	\[
+	\cI(W_1 \hookrightarrow S^1 \xra{\gamma} M) = \SQ^1 \cI(S^1 \xra{\gamma} M).
+	\]
+\end{proposition}
+
+The statement above depends on the use of the vector fields described above.
+We conjecture that the family of vector fields used by Halperin--Toledo \cite{halperin1972stiefel} can also be used.
+
+\begin{remark*}
+	The construction of $W_1$ presented here could be promoted to an integral geometric cocycle by considering (co-)orientations.
+	This invites the study of an integral version of the geometric cocycle analysis of the Wu relation discussed here.
+\end{remark*}
