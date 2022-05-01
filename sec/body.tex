@@ -2,13 +2,11 @@
 
 \section*{The first Wu formula at the geometric cochain level} \label{s:statement}
 
-\vspace*{10pt}
-
-Let $\gamma \colon S^1 \to M$ a map to a closed smooth $d$-manifold.
-Let $w_1(\gamma^\ast TM)$ be the first Stiefel--Whitney class of the pullback of the tangent bundle of $M$ along $\gamma$.
+Let $\gamma \colon S^1 \to M$ be a smooth map to a closed $d$-manifold.
 
 \subsection*{Cohomological relation}
 
+Let $w_1(\gamma^\ast TM)$ be the first Stiefel--Whitney class of the pullback of the tangent bundle of $M$ along $\gamma$.
 Let $\gamma_\ast[S^1]$ be the pushforward of the mod 2 fundamental class of $S^1$ along $\gamma$ and $\dual \gamma_\ast[S^1]$ its Poincar\'e dual.
 Notice that tautologically
 \[
@@ -95,7 +93,15 @@ which motivates the notation
 The statement above depends on the use of the vector fields described above.
 We conjecture that the family of vector fields used by Halperin--Toledo \cite{halperin1972stiefel} can also be used.
 
-\begin{remark*}
-	The construction of $W_1$ presented here could be promoted to an integral geometric cocycle by considering (co-)orientations.
-	This invites the study of an integral version of the geometric cocycle analysis of the Wu relation discussed here.
-\end{remark*}
+\section*{Towards and integral relation}
+
+The construction of $W_1$ presented here could be promoted to an integral geometric cocycle by considering (co-)orientations.
+This invites the study of an integral version of the geometric cochain analysis of the Wu relation discussed above.
+
+Let us further assume that $\gamma \colon S^1 \to M$ is an co-oriented immersion.
+For each connected component of $S^1 \setminus W_1$ the fields $f_0, \dots, f_{d-2}$ define a co-orientation of the restriction of $\gamma$ to it.
+Let $U_1 \subseteq S^1 \setminus W_1$ be the union of the closure of the components where this co-orientation agrees with the one chosen for $\gamma \colon S^1 \to M$.
+We remark that the transversality assumption on $\gamma$ ensures that these closed components are disjoint.
+We consider $U_1$ oriented by $v$, and define the integral lift $\widehat{W_1}$ of $W_1$ to be the boundary of $U_1$.
+
+\anibal{Maybe get the integral lift using just co-orientation of $S^1$ since odd and top SW classes are defined with integral coefficients even when $M$ is not orientable.}
