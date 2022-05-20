@@ -1,80 +1,162 @@
 % !TEX root = ../lk_sq.tex
 
-\section*{The first Wu formula at the geometric cochain level} \label{s:statement}
+%\section*{The first Wu formula at the geometric cochain level} \label{s:statement}
 
-Let $\gamma \colon S^1 \to M$ be a smooth map to a closed $d$-manifold.
+Throughout this note $M$ denotes a (non-necessarily orientable) smooth $d$-manifold.
+
+\subsection*{Preliminaries}
+
+Let us consider the \textbf{Steenrod square} operations
+\[
+\Sq^i \colon H^m(X; \Ftwo) \to H^{m+i}(X; \Ftwo)
+\]
+defined for any space $X$.
+Recall that $\Sq^0$ is the identity and that $\Sq^i[\alpha] = 0$ if $i < 0$ or $i > m$, where $m$ is the degree of $[\alpha]$.
+
+The $i^\th$ \textbf{Wu class} $v_i \in H^i(M; \Ftwo)$ is defined by the identity
+\[
+\Sq^i [\alpha] = v_i \smallsmile [\alpha]
+\]
+holding for every $[\alpha]$.
+Its existence is guaranteed by the non-degeneracy of the Poincar\'e duality pairing.
+The $i^\th$ \textbf{Stiefel--Whitney class} $w_i \in H^i(M; \Ftwo)$ of (the tangent bundle of) $M$ is defined by the identity
+\[
+(w_0 + w_1 + \dotsb) = (\Sq^0 + \Sq^1 + \dotsb)(v_0 + v_1 + \dotsb).
+\]
+Explicitly,
+\begin{align*}
+	w_0 &= v_0 \\
+	w_1 &= v_1 \\
+	w_2 &= v_2 + Sq^1(v_1) \\
+	& \ \, \vdots
+\end{align*}
 
 \subsection*{Cohomological relation}
 
-Let $w_1(\gamma^\ast TM)$ be the first Stiefel--Whitney class of the pullback of the tangent bundle of $M$ along $\gamma$.
+The goal of this note is to \emph{geometrically} lift the following relation holding in mod 2 cohomology to the integral cochain level.
+
+Let $\gamma \colon S^1 \to M$ be a smooth map to a closed $d$-manifold.
+Let $\gamma^\ast w_1(TM)$ be the pullback of the first Stiefel--Whitney class of the tangent bundle of $M$ along $\gamma$.
 Let $\gamma_\ast[S^1]$ be the pushforward of the mod 2 fundamental class of $S^1$ along $\gamma$ and $\dual \gamma_\ast[S^1]$ its Poincar\'e dual.
-Notice that tautologically
+Notice that, tautologically,
 \[
 \gamma_\ast[S^1] = \dual \gamma_\ast[S^1] \smallfrown [M].
 \]
-Using the Wu formula and the fact that the first Stiefel--Whitney and Wu classes agree we have:
-\begin{align*}
-	\angles[\big]{w_1(\gamma^\ast TM), [S^1]} &=
+Therefore,
+\begin{equation} \label{e:cohomological_relation}
+	\begin{split}
+	\angles[\big]{\gamma^\ast w_1(TM), [S^1]} &=
 	\angles[\big]{w_1(TM), \gamma_\ast [S^1]} \\ &=
 	\angles[\big]{w_1(TM), \dual \gamma_\ast[S^1] \smallfrown [M]} \\ &=
 	\angles[\big]{w_1(TM) \smallsmile \dual \gamma_\ast[S^1], [M]} \\ &=
 	\angles[\big]{\Sq^1 \dual \gamma_\ast[S^1], [M]}.
-\end{align*}
-We will now lift this identity to the geometric cochain level.
+	\end{split}
+\end{equation}
+
+\subsection*{Obstructions to sections}
+
+Similarly to how the top Stiefel--Whitney class has an integral lift --the Euler class-- when $M$ is oriented, the odd Stiefel--Whitney classes have integral lifts using twisted coefficients.
+In particular, we denote the integral lift of $w_1$ by $\widetilde w_1$.
 
 \subsection*{Geometric cochains}
 
-For a closed manifold $N$ denote by $C^*_{\Gamma}(M)$ the complex of mod 2 geometric cochains introduced in \cite{medina2021flowing} (over the integers).
-Its degree $m$ part consists of linear combinations of equivalence classes of smooth maps to $N$ from manifolds with corners of codimension $m$.
+For a closed manifold $N$ denote by $C^*_{\Gamma}(M)$ the complex of geometric cochains introduced in \cite{medina2021flowing}.
+Its degree $m$ part consists of linear combinations of equivalence classes of smooth maps to $N$ from co-oriented manifolds with corners of codimension $m$.
 Its differential is defined by the geometric boundary of the generators.
-It is a model for the mod 2 cohomology of $M$.
-In fact we have the following comparison at the cochain level with the simplicial cochains $\cochains(X)$ of any triangulation $\bars{X} \to M$.
+It is a model for the integral cohomology of $M$.
+In fact, we have the following comparison at the cochain level with the simplicial cochains $\cochains(X)$ of any triangulation $\bars{X} \to M$.
 We first restrict to the subcomplex $C^*_{\Gamma \pitchfork X}(N)$ of geometric cochains that are transverse to the triangulation, claiming that the quasi-isomorphism type is preserved, and then define a quasi-isomorphism
 \[
 \cI \colon C^*_{\Gamma \pitchfork X}(N) \to \cochains(X)
 \]
-by counting the number of intersection points mod 2.
-We remark that by considering co-orientations on the generators, a similar statement holds with integral coefficients.
+by counting the number of intersection with signs determined by comparing the co-orientation of the geometric cochain and a natural orientation of the standard simplices.
 
-\subsection*{Canonical vector fields}
+\subsection*{Whitney vector fields}
 
-We will consider the following natural family of vector fields in the standard $n$-simplex
+We will use a family considered by Whitney in \cite{whitney1940sphere_bundles} of vector fields $f_1, \dots, f_n$ on the standard $n$-simplex, for which we use the following topological model
 \[
-\gsimplex^n = \set[\big]{x = (x_0, \dots, x_n) \mid \textstyle \sum x_i = 1,\ x_i \geq 0}
+\gsimplex^n = \set[\big]{(x_0, \dots, x_n) \mid \textstyle \sum x_i = 1,\ x_i \geq 0}
 \]
-defined, using the canonical basis $e_0, \dots, e_n$ of $\R^{n+1}$, by
-\begin{align*}
-	f_0(x) &= \sum_{i < j} x_i x_j (e_j - e_i) \\
-	f_1(x) &= \sum_{i < j < k} x_i x_j x_k (e_k - e_j + e_i) \\
-	&\ \, \vdots
-\end{align*}
-\textit{Claim}: The vector fields $f_0, \dots f_{n-1}$ define a trivialization of the interior of $\gsimplex^n$ and, by naturality, extend to vector fields on $M$ via the triangulation.
+with canonical inclusions $\delta_i \colon \gsimplex^{n-1} \to \gsimplex^n$ given by
+\[
+\delta_i(x_0, \dots, x_{n-1}) = (x_0, \dots, x_{i-1}, 0, x_{i+1}, \dotsm, x_{n-1}).
+\]
+Using the canonical basis $e_0, \dots, e_n$ of $\R^{n+1}$ and the identification of this space with its tangent bundle at each point, we define for $j \in \{1, \dots, n\}$ the $j^\th$ \textit{Whitney vector field} $f_j$ by
+\[
+f_j(x) = \sum_{\mathclap{i_0 < \dots < i_j}} x_{i_0} \dotsm \, x_{i_j} (e_j - x).
+\]
+These vector fields are natural in the following sense.
+For any canonical inclusion $\delta_i \colon \gsimplex^{n-1} \to \gsimplex^n$ and Whitney vector field $f_j$ with $j \in \{1, \dots, n-1\}$ we have:
+\begin{equation} \label{e:pushforward}
+	\delta_{i\ast} f_j =
+	\begin{cases}
+		f_j |_{\delta_i(\gsimplex^{n-1})} & \text{if } i > j, \\
+		f_{j+1} |_{\delta_i(\gsimplex^{n-1})} & \text{if } i \leq j.
+	\end{cases}
+\end{equation}
+That is to say, the pushforward of the $j^\th$ Whitney vector fields along the $i^\th$ canonical inclusion is equal to the restriction of the $j^\th$ or $(j+1)^\th$ Whitney vector field to the image of said inclusion depending on the order relation between $i$ and $j$.
+
+\subsection*{Orientations}
+
+For any positive integer $n$, the set $\set{f_1, \dots, f_n}$ is linearly independent in the interior of $\gsimplex^n$ and defines a orientation for which $f_1 \wedge \dots \wedge f_n$ is a positive.
+We observe that by \cref{e:pushforward}, the pushforward along $\delta_i \colon \gsimplex^{n-1} \to \gsimplex^n$ satisfies
+\[
+\delta_{i \ast} (f_1 \wedge \dots \wedge f_{n-1}) =
+\begin{cases}
+	f_2 \wedge \dots \wedge f_n &
+	\text{if } i = 0, \\
+	f_1 \wedge \dots \wedge \widehat{f_i} \wedge \dots \wedge f_n
+	& \text{if } i \neq 0.
+\end{cases}
+\]
+For $i \neq 0$, the outer pointing normal on $\delta_i(\gsimplex^{n-1})$ can be represented by $- f_i$ and we have
+\[
+-f_i \wedge f_1 \wedge \dots \wedge \widehat{f_i} \wedge \dots \wedge f_n =
+(-1)^i f_1 \wedge \dots \wedge f_n.
+\]
+The outward pointing normal for the case $i = 0$ is represented by $x$ and one can compute that
+$x \wedge f_2 \wedge \dots \wedge f_n$ represents the same orientation as $f_1 \wedge \dots \wedge f_n$.
+
+\begin{lemma}
+	The orientation induced by the inclusion $\delta_i \colon \gsimplex^{n-1} \to \gsimplex^n$ and the outer pointing normal agrees with that in the target if and only if the integer $i$ is even.
+\end{lemma}
 
 \subsection*{First Stiefel--Whitney class}
 
-Define $W_1 \subset S^1$ to be the locus where the vector fields $\gamma^\ast f_0, \dots, \gamma^\ast f_{n-2}$ in $\gamma^\ast TM$ fail to be linearly independent.
+Let us assume $\gamma \colon S^1 \to M$ is an embedding transverse to the triangulation $\bars{X} \to M$.
+We further assume it is oriented and co-oriented.
+That is to say, we have chosen and orientation of its tangent bundle, say represented by a vector field $v$, and an orientation of its normal bundle in $M$.
+
+\begin{definition}
+	Let $\omega_1 \subset S^1$ to be the locus where the set $\set{\gamma_\ast (v), f_1, \dots, f_{n-1}}$ fails to be linearly independent.
+\end{definition}
+
 As a further transversality assumption, we demand this locus to consist of isolated points.
 
 \begin{proposition}
-	The cohomology class $w_1(\gamma^\ast TM)$ is represented by the geometric cocycle $W_1 \hookrightarrow S^1$.
+	The cohomology class represented by the geometric cocycle $\omega_1 \hookrightarrow S^1$ is equal to $\gamma^\ast \widetilde w_1(TM)$.
+%	the first Stiefel-Whitney class of $\gamma^\ast TM$ with integer coefficients.
+%	In particular, its mod 2 reduction is equal to $w_1(\gamma^\ast TM)$.
 \end{proposition}
 
-We remark that this statement fits well with the obstruction theoretic definition of of the first Stiefel--Whitney class of a vector bundle.
+We remark that this statement fits well with the original definition of the first Stiefel--Whitney class $\widetilde w_1(TM)$, as the primary obstruction to the existence of $n$ linearly independent vector fields in $TM$.
+
+%We will obtain this statement from a local lift to the cochain level of the identity
 
 \subsection*{First Steenrod square}
 
 Consider now the composition $W_1 \hookrightarrow S^1 \xra{\gamma} M$ as a geometric cocycle on $M$.
 
 \begin{proposition}
-	The first Steenrod square of the class represented by the geometric cocycle $S^1 \xra{\gamma} M$ is represented by $W_1 \hookrightarrow S^1 \xra{\gamma} M$.
+	The first Steenrod square of the mod 2 cohomology class represented by the geometric cocycle $S^1 \xra{\gamma} M$ is represented by $\omega_1 \hookrightarrow S^1 \xra{\gamma} M$.
 \end{proposition}
 
 This result follows from a local cochain level statement we now present.
 Let
 \[
-\smallsmile_i \colon \cochains(K) \otimes \cochains(K) \to \cochains(K)
+\smallsmile_i \colon \cochains(K; \Z) \otimes \cochains(K; \Z) \to \cochains(K; \Z)
 \]
-be Steenrod's cup-$i$ product \cite{steenrod1947products, medina2022axiomatic}.
+be Steenrod's cup-$i$ product introduced in \cite{steenrod1947products} and axiomatized in \cite{medina2022axiomatic}.
 Recall that for any mod 2 class $[\alpha]$ with $\alpha \in \cochains(K)_{d-1}$ we have
 \[
 \Sq^1 [\alpha] = \big[ \alpha \smallsmile_{d-2} \alpha \big],
@@ -84,24 +166,29 @@ which motivates the notation
 \SQ^1 \alpha \defeq \alpha \smallsmile_{d-2} \alpha.
 \]
 \begin{proposition}
-	The following identity holds in $\cochains(X)$:
-	\[
-	\cI(W_1 \hookrightarrow S^1 \xra{\gamma} M) = \SQ^1 \cI(S^1 \xra{\gamma} M).
-	\]
+	The following identity holds in $\cochains(X)$ if $\gamma$ does not visit a top simplex more than once:
+	\begin{equation} \label{e:identity}
+		\cI(W_1 \hookrightarrow S^1 \xra{\gamma} M) = \SQ^1 \cI(S^1 \xra{\gamma} M).
+	\end{equation}
 \end{proposition}
 
-The statement above depends on the use of the vector fields described above.
-We conjecture that the family of vector fields used by Halperin--Toledo \cite{halperin1972stiefel} can also be used.
+\begin{proof}
+	Consider an $n$-simplex $\sigma$ in $X$.
+	If $\gamma$ does not intersect $\sigma$ then both sides of \cref{e:identity} applied to the basis element $\sigma$ are $0$.
+	Assume that $\gamma$ intersects the faces $d_i \sigma$ and $d_j \sigma$ of $\sigma$.
+	By assumption, these are the only faces that it intersects, with $i = j$ an admissible possibility.
+	Without loss of generality, let $\gamma_\ast(v)$ be inner-pointing at $d_i \sigma$ and outer-pointing at $d_j \sigma$ with respect to $\sigma$.
+\end{proof}
 
-\section*{Towards and integral relation}
-
-The construction of $W_1$ presented here could be promoted to an integral geometric cocycle by considering (co-)orientations.
-This invites the study of an integral version of the geometric cochain analysis of the Wu relation discussed above.
-
-Let us further assume that $\gamma \colon S^1 \to M$ is an co-oriented immersion.
-For each connected component of $S^1 \setminus W_1$ the fields $f_0, \dots, f_{d-2}$ define a co-orientation of the restriction of $\gamma$ to it.
-Let $U_1 \subseteq S^1 \setminus W_1$ be the union of the closure of the components where this co-orientation agrees with the one chosen for $\gamma \colon S^1 \to M$.
-We remark that the transversality assumption on $\gamma$ ensures that these closed components are disjoint.
-We consider $U_1$ oriented by $v$, and define the integral lift $\widehat{W_1}$ of $W_1$ to be the boundary of $U_1$.
-
-\anibal{Maybe get the integral lift using just co-orientation of $S^1$ since odd and top SW classes are defined with integral coefficients even when $M$ is not orientable.}
+%\section*{Towards and integral relation}
+%
+%The construction of $W_1$ presented here could be promoted to an integral geometric cocycle by considering (co-)orientations.
+%This invites the study of an integral version of the geometric cochain analysis of the Wu relation discussed above.
+%
+%Let us further assume that $\gamma \colon S^1 \to M$ is an co-oriented immersion.
+%For each connected component of $S^1 \setminus W_1$ the fields $f_0, \dots, f_{d-2}$ define a co-orientation of the restriction of $\gamma$ to it.
+%Let $U_1 \subseteq S^1 \setminus W_1$ be the union of the closure of the components where this co-orientation agrees with the one chosen for $\gamma \colon S^1 \to M$.
+%We remark that the transversality assumption on $\gamma$ ensures that these closed components are disjoint.
+%We consider $U_1$ oriented by $v$, and define the integral lift $\widehat{W_1}$ of $W_1$ to be the boundary of $U_1$.
+%
+%\anibal{Maybe get the integral lift using just co-orientation of $S^1$ since odd and top SW classes are defined with integral coefficients even when $M$ is not orientable.}

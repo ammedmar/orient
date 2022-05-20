@@ -1,0 +1,13 @@
+% !TEX root = ../lk_sq.tex
+
+\appendix
+\section*{Legacy}
+
+----------------------------------- \\
+My vector fields:
+\begin{align*}
+	f_0(x) &= \sum_{i < j} x_i x_j (e_j - e_i) \\
+	f_1(x) &= \sum_{i < j < k} x_i x_j x_k (e_k - e_j + e_i) \\
+	&\ \, \vdots
+\end{align*}
+----------------------------------- \\
