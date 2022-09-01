@@ -1,5 +1,3 @@
-% !TEX root = ../lk_sq.tex
-
 \usepackage{microtype}
 \usepackage{amssymb}
 \usepackage{mathtools}
@@ -21,7 +19,7 @@
 
 \DeclareFieldFormat{title}{\myhref{\mkbibemph{#1}}}
 \DeclareFieldFormat
-[article,inbook,incollection,inproceedings,patent,thesis,unpublished]
+[article,inbook,incollection,inproceedings,thesis,unpublished]
 {title}{\myhref{\mkbibquote{#1\isdot}}}
 
 \newcommand{\doiorurl}{%
@@ -70,8 +68,8 @@
 \crefname{subsection}{\S\!}{subsections}
 
 % layout
-\addtolength{\textwidth}{1in}
-\addtolength{\textheight}{1in}
+\addtolength{\textwidth}{0in}
+\addtolength{\textheight}{0in}
 \calclayout
 
 % update to MSC2020

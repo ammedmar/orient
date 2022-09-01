@@ -1,0 +1,14 @@
+% !TEX root = ../orientability.tex
+
+\section*{Geometric cochains}
+
+For a closed manifold $M$ denote by $C^*_{\Gamma}(M)$ the complex of geometric cochains introduced in \cite{medina2021flowing}.
+Its degree $m$ part consists of linear combinations of equivalence classes of smooth maps to $M$ from co-oriented manifolds with corners of codimension $m$.
+Its differential is defined by the geometric boundary of the generators.
+It is a model for the integral cohomology of $M$.
+In fact, we have the following comparison at the cochain level with the simplicial cochains $\cochains(X)$ of any triangulation $\bars{X} \to M$.
+We first restrict to the subcomplex $C^*_{\Gamma \pitchfork X}(M)$ of geometric cochains that are transverse to the triangulation, claiming that the quasi-isomorphism type is preserved, and then define a quasi-isomorphism
+\[
+\cI \colon C^*_{\Gamma \pitchfork X}(M) \to \cochains(X)
+\]
+assigning to a degree $m$ basis element $W \mapsto \bars{X}$ the cochain whose value on a simplex $\gsimplex^{n-m} \to \bars{X}$ is given by the signed cardinality of $W \pitchfork \gsimplex^{n-m}$ with respect to a canonical orientation on $\gsimplex^{n-m}$ and the co-orientation of $W$.

@@ -1,35 +1,35 @@
-\immediate\write18{biber \jobname}
-
 \documentclass{amsart}
 \input{aux/style}
 \input{aux/usualcmds}
-\addbibresource{aux/mypapers.bib}
 \addbibresource{aux/usualpapers.bib}
 
 %%%%%%%%%%%%%%%%%%%%%%
 
 \input{aux/commands} % add new commands
 \addbibresource{aux/bibliography.bib} % add references
-\usepackage{parskip}
+%\usepackage{parskip}
 %\setlength{\parindent}{0pt}
 %%%%%%%%%%%%%%%%%%%%%%
 
-%\title{}
+\title{Geometric cochains and orientability}
 
 %\author[A.~Medina-Mardones]{Anibal~M.~Medina-Mardones}
 %\address{A.M-M., Max Planck Institute for Mathematics \and University of Notre Dame}
 %\email{\href{mailto:ammedmar@mpim-bonn.mpg.de}{ammedmar@mpim-bonn.mpg.de}}
 
 \date{\today}
-%\subjclass[2020]{TBW}
-%\keywords{TBW}
+\subjclass[2020]{TBW}
+\keywords{TBW}
 
 \begin{document}
-	\today
-%	\input{sec/abstract}
-%	\maketitle
-%	\input{sec/introduction}
-%	\input{sec/acknowledgment}
+	\input{sec/abstract}
+	\maketitle
+	\input{sec/introduction}
+	\input{sec/statement}
+	\input{sec/preliminaries}
+	\input{sec/acknowledgment}
+	\input{sec/geo_coho}
+	\input{sec/whitney_fields}
 	\input{sec/body}
 	\sloppy
 	\printbibliography

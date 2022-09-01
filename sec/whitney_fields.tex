@@ -1,0 +1,79 @@
+% !TEX root = ../orientability.tex
+
+\section*{Whitney fields}
+
+We recall a family of vector fields on the standard $n$-simplex introduced by Whitney \cite{whitney1940sphere_bundles}.
+We will use the following model of said space
+\[
+\gsimplex^n = \set[\big]{(x_0, \dots, x_n) \in \R^{n+1} \mid \textstyle \sum x_i = 1,\ x_i \geq 0}
+\]
+with face embeddings $\delta_i \colon \gsimplex^{n-1} \to \gsimplex^n$ given by
+\[
+\delta_i(x_0, \dots, x_{n-1}) = (x_0, \dots, x_{i-1}, 0, x_{i+1}, \dotsm, x_{n-1}).
+\]
+
+Let $e_0, \dots, e_n$ denote the canonical basis of $\R^{n+1}$.
+We will use the identification of this space with its tangent bundle at each point without further comments.
+
+\begin{definition}
+	The \textbf{Whitney $j$-field} $f_j$ is the section of $\rT\gsimplex^n$ defined for $j \in \{1, \dots, n\}$ by
+	\begin{equation} \label{e:whitney_fields}
+		f_j(x) = \sum_{\mathclap{i_0 < \dots < i_j}} x_{i_0} \dotsm \, x_{i_j} (e_j - x).
+	\end{equation}
+\end{definition}
+
+These vector fields are natural in the following sense.
+
+\begin{lemma}
+	For any $\delta_i \colon \gsimplex^{n-1} \to \gsimplex^n$
+	\begin{equation} \label{e:pushforward}
+		\delta_{i\ast} f_j =
+		\begin{cases}
+			f_j |_{\delta_i(\gsimplex^{n-1})} & \text{if } i > j, \\
+			f_{j+1} |_{\delta_i(\gsimplex^{n-1})} & \text{if } i \leq j.
+		\end{cases}
+	\end{equation}
+\end{lemma}
+
+That is to say, the pushforward of the Whitney $j$-field along the $i^\th$ canonical inclusion is equal, depending on the order relation between $i$ and $j$, to the restriction of either the Whitney $j$- or $(j+1)$-field.
+
+\begin{lemma}
+	The set $\set{f_1, \dots, f_n}$ is linearly independent in $\interior\gsimplex^n$ the interior of $\gsimplex^n$
+\end{lemma}
+
+\begin{proof}
+	This is proven as part (iii) of Lemma 2 in \cite{halperin1972stiefel_whitney}.
+\end{proof}
+
+We use this ordered basis to orient the standard $n$-simplex.
+
+\begin{definition}
+	The \textbf{canonical orientation} of $\interior\gsimplex^n$ is defined by the class represented by the section $\sfo_n \defeq f_1 \wedge \dots \wedge f_n$ of $\bigwedge^n \rT \gsimplex^n$.
+\end{definition}
+
+We have the following behavior of orientations with respect to face embeddings.
+Consider $\delta_i \colon \gsimplex^{n-1} \to \gsimplex^n$ one such embedding and let $\nu$ be an \emph{outer-pointing normal} for the pair $\big( \gsimplex^n, \delta_i(\gsimplex^{n-1}) \big)$.
+
+\begin{lemma}
+	The sections $\nu \wedge \mathsf \delta_{i\ast} \sfo_{n-1}$ and $(-1)^i \sfo_{n}$ define the same orientation of $\gsimplex^n$ on their common domain $\delta_i(\gsimplex^{n-1})$.
+\end{lemma}
+
+\begin{proof}
+	We observe that by \cref{e:pushforward}, the pushforward along $\delta_i \colon \gsimplex^{n-1} \to \gsimplex^n$ satisfies
+	\[
+	\delta_{i \ast} (f_1 \wedge \dots \wedge f_{n-1}) =
+	\begin{cases}
+		f_2 \wedge \dots \wedge f_n &
+		\text{if } i = 0, \\
+		f_1 \wedge \dots \wedge \widehat{f_i} \wedge \dots \wedge f_n
+		& \text{if } i \neq 0.
+	\end{cases}
+	\]
+	For $i \neq 0$, the outer pointing normal on $\delta_i(\gsimplex^{n-1})$ can be represented by $- f_i$ and we have
+	\[
+	-f_i \wedge f_1 \wedge \dots \wedge \widehat{f_i} \wedge \dots \wedge f_n =
+	(-1)^i f_1 \wedge \dots \wedge f_n.
+	\]
+	The outward pointing normal for the case $i = 0$ is represented by $x$ and one can compute that
+	$x \wedge f_2 \wedge \dots \wedge f_n$ represents the same orientation as $f_1 \wedge \dots \wedge f_n$.
+\end{proof}

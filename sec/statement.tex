@@ -1,0 +1,31 @@
+% !TEX root = ../orientability.tex
+
+\section{Statement}
+
+Consider a smooth map $\gamma \colon S^1 \to M$ from the circle to a smooth $n$-manifold without boundary.
+Furthermore, let $M \cong \bars{X}$ be equipped with an triangulation to which $\gamma$ is transverse.
+Let us assume that $X$ is equipped with a \textit{branching structure}, that is, a collection of compatible total orders for the vertices of each simplex.
+Equivalently, we can think of $X$ as a simplicial set in which simplices are fully determined by their vertices.
+An orientation of $S^1$ defines a simplicial $(n-1)$-cocycle $\cI(\gamma)$ with twisted coefficients.
+Intuitively, this is defined by counting with signs the intersection points of $\gamma$ and $(n-1)$-simplices.
+Similarly, after pulling back the triangulation on $M$ to $S^1$ via $\gamma$, a transverse map from an oriented $0$-manifold $V \to S^1$ defines a simplicial $1$-cocycle of $S^1$.
+
+
+It is well known that $M$, or more precisely its tangent bundle $\rT M$, is orientable if and only if its first Stiefel--Whitney class $w_1$ vanishes.
+This class is the reduction mod 2 of the primary obstruction $\theta$ to trivializing $\rT M$, i.e., to defining $n$-linearly independent vector fields in $M$.
+
+We will use certain canonical vector fields introduced by Whitney to represent $\gamma^\ast \theta$
+
+%The old claim is as follows: An embedding of the circle into a manifold M determines a homology class by pushing forward the fundamental class of the circle.
+%It also determines a geometric cocycle, which represents the Poincare dual of said homology class.
+%Asumme M triangulated and the embedding transverse to it.
+%The 1st "Stiefel-Whitney" locus of the curve with respect to the canonical vector fields represents, under an additional transversality condition, the following: 1) when the locus is regarded as a geometric cocycle of the domain circle, it represents the first Stiefel-Whitney class of M pulled back by the embedding, and 2) thought of as a geometric cocycle in M, it represents at the cochain level the first Steenrod square of the geometric cocycle represented by the embedding.
+%There was a hidden assumption for this to hold as stated.
+%To describe it, consider the following filtration of the set of top dimensional simplices of M.
+%At level 0 we have simplices that are disjoint from the embedded curve.
+%At level 1 those whose intersection with the curve is connected in the domain circle, at level 2 those whose intersection with the curve has 2 components in the circle, etc...
+%The statement above holds if all simplices have at most level 1.
+%It is quite interesting to consider what happens when level 2 simplices are allowed.
+%The last d-2 canonical vector fields give a projection to the plane, sending the two connected components of the curve in that simplex to a link-diagram.
+%The failure of the formula above is captured by the crossing number of this link-diagram (I have a proof in d=3, but the other cases seem similar).
+%This is reminiscent of one of Thorngren's statements, where the self-linking number appears from a physics theory related to the situation considered here when invariance over triangulations is demanded.

@@ -1,0 +1,50 @@
+% !TEX root = ../orientability.tex
+
+\appendix
+\newpage
+\section*{Legacy}
+
+\fline
+
+My vector fields:
+\begin{align*}
+	f_0(x) &= \sum_{i < j} x_i x_j (e_j - e_i) \\
+	f_1(x) &= \sum_{i < j < k} x_i x_j x_k (e_k - e_j + e_i) \\
+	&\ \, \vdots
+\end{align*}
+
+\fline
+
+\subsection*{Preliminaries}
+
+Let us consider the \textbf{Steenrod square} operations
+\[
+\Sq^i \colon H^m(X; \Ftwo) \to H^{m+i}(X; \Ftwo)
+\]
+defined for any space $X$.
+Recall that $\Sq^0$ is the identity and that $\Sq^i[\alpha] = 0$ if $i < 0$ or $i > m$, where $m$ is the degree of $[\alpha]$.
+
+The $i^\th$ \textbf{Wu class} $v_i \in H^i(M; \Ftwo)$ is defined by the identity
+\[
+\Sq^i [\alpha] = v_i \smallsmile [\alpha]
+\]
+holding for every $[\alpha]$.
+Its existence is guaranteed by the non-degeneracy of the Poincar\'e duality pairing.
+The $i^\th$ \textbf{Stiefel--Whitney class} $w_i \in H^i(M; \Ftwo)$ of (the tangent bundle of) $M$ is defined by the identity
+\[
+(w_0 + w_1 + \dotsb) = (\Sq^0 + \Sq^1 + \dotsb)(v_0 + v_1 + \dotsb).
+\]
+Explicitly,
+\begin{align*}
+w_0 &= v_0 \\
+w_1 &= v_1 \\
+w_2 &= v_2 + Sq^1(v_1) \\
+& \ \, \vdots
+\end{align*}
+
+\fline
+
+The orientation induced by the inclusion $\delta_i \colon \gsimplex^{n-1} \to \gsimplex^n$ and the outer pointing normal agrees with that in the target if and only if the integer $i$ is even.
+More precisely we have the following.
+
+\fline
